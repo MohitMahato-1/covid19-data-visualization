@@ -53,8 +53,7 @@ plt.show()
 
 #Bar chart Horizontal 
 top_10death=df.nlargest(10,"Deaths")
-#plt.barh(Y axis, X axis)
-    #     names   numbers
+
 plt.figure(figsize=(8,5))
 plt.barh(top_10death["Country/Region"], top_10death["Deaths"],color="darkred")  
 plt.title("Horizontal barchart for death")
