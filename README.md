@@ -1,111 +1,58 @@
-# 📊 COVID-19 Data Visualization Project
+# COVID-19 Data Visualization
 
-## 📌 Overview
+A small Python project that reads the included country-level COVID-19 CSV and displays five static Matplotlib charts. It is a data-visualization exercise using a historical snapshot, not a live dashboard or a source for current case totals.
 
-This project analyzes and visualizes global COVID-19 data using Python. It focuses on extracting meaningful insights through different types of visualizations such as bar charts, pie charts, scatter plots, and horizontal bar charts.
+## Visualizations
 
-The dataset used contains country-wise COVID-19 statistics including confirmed cases, deaths, recoveries, and WHO region classification.
+The script generates:
 
----
+1. Top 10 countries by confirmed cases.
+2. Deaths and recoveries for those countries.
+3. Confirmed cases grouped by WHO region.
+4. Confirmed cases versus deaths.
+5. Top 10 countries by deaths.
 
-## 🛠️ Technologies Used
+## Dataset
 
-* Python
-* Pandas (Data Manipulation)
-* NumPy (Numerical Operations)
-* Matplotlib (Data Visualization)
+The repository includes `COVID_19.csv`. The script uses these columns:
 
----
+- `Country/Region`
+- `Confirmed`
+- `Deaths`
+- `Recovered`
+- `WHO Region`
 
-## 📂 Dataset
+The data is static. The charts reflect the values in this file and do not update automatically.
 
-* File Name: `COVID_19.csv`
-* Expected Columns:
+## Requirements
 
-  * `Country/Region`
-  * `Confirmed`
-  * `Deaths`
-  * `Recovered`
-  * `WHO Region`
+- Python 3
+- pandas
+- NumPy
+- Matplotlib
 
----
+## Run
 
-## 📈 Visualizations Included
-
-### 1. Top 10 Countries by Confirmed Cases
-
-* A vertical bar chart displaying the countries with the highest confirmed COVID-19 cases.
-* Helps identify the most affected regions globally.
-
-### 2. Deaths vs Recoveries Comparison
-
-* A grouped bar chart comparing deaths and recoveries among the top 10 countries.
-* Useful for understanding recovery efficiency vs fatality.
-
-### 3. Region-wise Distribution (Pie Chart)
-
-* A pie chart showing the proportion of confirmed cases across WHO regions.
-* Provides a macro-level regional analysis.
-
-### 4. Scatter Plot (Deaths vs Confirmed Cases)
-
-* Displays the relationship between confirmed cases and deaths.
-* Helps identify trends and correlations.
-
-### 5. Top 10 Countries by Deaths (Horizontal Bar Chart)
-
-* Highlights countries with the highest death counts.
-* Easier comparison using horizontal layout.
-
----
-
-## ▶️ How to Run the Project
-
-1. Install required libraries:
+From the repository root:
 
 ```bash
-pip install pandas matplotlib numpy
+python -m pip install pandas numpy matplotlib
+python covid_data_analyzer.py
 ```
 
-2. Place the dataset file `COVID_19.csv` in the project directory.
+The script reads `COVID_19.csv` from the current working directory and opens each chart with Matplotlib.
 
-3. Run the Python script:
+## Files
 
-```bash
-python your_script_name.py
+```text
+.
+├── COVID_19.csv
+├── covid_data_analyzer.py
+└── README.md
 ```
 
----
+## Limitations
 
-## 📊 Key Features
-
-* Data cleaning and aggregation using Pandas
-* Multiple visualization techniques
-* Formatted large numbers for readability
-* Clear labeling and layout adjustments
-
----
-
-## ⚠️ Limitations
-
-* Static dataset (no real-time updates)
-* No interactive dashboards
-* Dependent on dataset accuracy
-
----
-
-## 🚀 Future Improvements
-
-* Add interactive dashboards using Plotly or Streamlit
-* Include time-series analysis
-* Automate data updates using APIs
-
----
-
-## 📎 Author
-
-Mohit Mahato
-
-
-
-Feel free to fork this repository and improve the project. Suggestions and contributions are welcome!
+- The dataset is a fixed historical snapshot, not real-time data.
+- Charts are static; there is no interactive dashboard or time-series analysis.
+- Results depend on the accuracy and definitions used in the supplied dataset.
