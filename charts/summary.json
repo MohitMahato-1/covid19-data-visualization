@@ -1,0 +1,18 @@
+{
+  "countries": 187,
+  "confirmed": 16480485,
+  "deaths": 654036,
+  "recovered": 9468087,
+  "top_ten_confirmed_share_percent": 68.02,
+  "leading_country": "US",
+  "confirmed_by_region": {
+    "Americas": 8839286,
+    "Europe": 3299523,
+    "South-East Asia": 1835297,
+    "Eastern Mediterranean": 1490744,
+    "Africa": 723207,
+    "Western Pacific": 292428
+  },
+  "observation_date": null,
+  "interpretation": "Descriptive totals from the included historical snapshot; not current totals or a measure of individual risk."
+}

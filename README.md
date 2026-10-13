@@ -1,58 +1,33 @@
 # COVID-19 Data Visualization
 
-A small Python project that reads the included country-level COVID-19 CSV and displays five static Matplotlib charts. It is a data-visualization exercise using a historical snapshot, not a live dashboard or a source for current case totals.
-
-## Visualizations
-
-The script generates:
-
-1. Top 10 countries by confirmed cases.
-2. Deaths and recoveries for those countries.
-3. Confirmed cases grouped by WHO region.
-4. Confirmed cases versus deaths.
-5. Top 10 countries by deaths.
-
-## Dataset
-
-The repository includes `COVID_19.csv`. The script uses these columns:
-
-- `Country/Region`
-- `Confirmed`
-- `Deaths`
-- `Recovered`
-- `WHO Region`
-
-The data is static. The charts reflect the values in this file and do not update automatically.
-
-## Requirements
-
-- Python 3
-- pandas
-- NumPy
-- Matplotlib
+Five static charts that explore the country-level COVID-19 snapshot included in `COVID_19.csv`. This is an exploratory analysis of a historical file, not a live dashboard or a source for current case totals.
 
 ## Run
 
-From the repository root:
+Python 3.11 or newer:
 
 ```bash
-python -m pip install pandas numpy matplotlib
+python -m venv .venv
+# Windows: .venv\Scripts\Activate.ps1
+# macOS/Linux: source .venv/bin/activate
+python -m pip install -r requirements.txt
 python covid_data_analyzer.py
 ```
 
-The script reads `COVID_19.csv` from the current working directory and opens each chart with Matplotlib.
+The script reads the CSV beside itself, validates the required columns and numeric values, and writes charts to `charts/`. Add `--show` to open the figures interactively. It also saves `charts/summary.json` with the row count, aggregate totals, and top-country summary. Values are reproduced from this file and should not be interpreted as current statistics.
 
-## Files
+## Charts
 
-```text
-.
-├── COVID_19.csv
-├── covid_data_analyzer.py
-└── README.md
+The output includes top countries by confirmed cases, deaths and recoveries for the leading countries, confirmed cases by WHO region, confirmed cases versus deaths, and top countries by deaths. The comparisons use labeled axes and separate series so magnitudes can be read without relying on color alone.
+
+## Data and caveats
+
+The repository's CSV is the sole input. Its observation date and original source are not documented in the repository, so this project does not assign it a date or claim to verify its provenance. The file is a static snapshot; definitions, missingness, and reporting practices may differ by location. There is no time-series analysis or live data fetching.
+
+## Tests
+
+```bash
+python -m unittest discover -s tests -v
 ```
 
-## Limitations
-
-- The dataset is a fixed historical snapshot, not real-time data.
-- Charts are static; there is no interactive dashboard or time-series analysis.
-- Results depend on the accuracy and definitions used in the supplied dataset.
+Tests cover schema and value validation, summary calculations, chart generation, and output-directory handling. GitHub Actions runs the suite on Python 3.11 and 3.12.
